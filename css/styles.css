@@ -69,6 +69,16 @@ table {
 	border-spacing: 0;
 }
 /* CLASES POR DEFECTO */
+.border{
+    border: 2px solid #eee;
+    border-right-color: #000;
+    border-bottom-color: #000;
+}
+.border:hover{
+    border: 2px solid #000;
+    border-right-color: #eee;
+    border-bottom-color: #eee;
+}
 .pointer{
     cursor: pointer;
 }
@@ -92,6 +102,7 @@ table {
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    font-family: 'leviwindows';
 }
 .iconDesktop:hover{
     border: 1px dashed white;
@@ -101,20 +112,34 @@ table {
     background: transparent;
     border: none;
     color: white !important;
-    font-family: 'leviwindows';
 }
 /* FOOTER */
 footer{
     position: fixed;
     bottom: 0;
-    height: 50px;
+    height: 60px;
     width: 100%;
     background-color: var(--secundary-color);
     border-top: 3px solid var(--border-white);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: .5fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(1, 1fr); /* 7 filas */
+    font-family: 'leviwindows';
 }
-footer > div > img{
+
+.windowMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 50px;
+    margin: auto;
+}
+.windowMenu > img{
     width: 50px;
+    transform: rotate(-20deg);
+}
+.windowMenu > p{
+    font-size: 2rem;
+    font-weight: bolder;
 }
