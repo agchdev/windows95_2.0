@@ -74,6 +74,11 @@ table {
     border-right-color: #000;
     border-bottom-color: #000;
 }
+.borderInv{
+    border: 2px solid #000;
+    border-right-color: #eee;
+    border-bottom-color: #eee;
+}
 .border:hover{
     border: 2px solid #000;
     border-right-color: #eee;
@@ -142,4 +147,14 @@ footer{
 .windowMenu > p{
     font-size: 2rem;
     font-weight: bolder;
+}
+.hora{
+    margin: auto;
+    margin-right: 10px;
+    width: 200px;
+    height: 50px;
+    grid-column: 7 / 8;
+}
+.hora >p{
+    font-size: 2rem;
 }
