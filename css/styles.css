@@ -188,6 +188,7 @@ footer{
     display: flex;
     flex-direction: column;
     padding: .2rem;
+    font-family: 'leviwindows';
 }
 .screen-header{
     display: flex;
@@ -221,5 +222,33 @@ footer{
 .screen-url{
     display: flex;
     align-items: center;
+    justify-content: start;
+}
+
+/* CONTENT PRODUCTOS */
+.screen-content{
+    overflow: hidden;
+}
+.screen-content-banner{
+    background-image: url(../img/bannershop.jpg);
+    background-size: 100%;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.screen-content-productos-article{
+    display: flex;
     justify-content: space-between;
+}
+.screen-content-productos-article article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.screen-content-productos-article img{
+    width: 100px;
+}
+.screen-content-productos-article > article > p:nth-child(2){
+    font-weight: bolder;
 }
