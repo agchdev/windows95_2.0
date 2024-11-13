@@ -61,7 +61,9 @@ function crearAppIcon(){ // Esta función creal la app del escritorio
     });  
 }
 
+// Esta funcion añade la aplicacion a la barra de tareas
 function addBarraDeTareas(app){
+    let creado = false;
     const appDivBarTarea = document.createElement("div");
     appDivBarTarea.setAttribute("class", "divWM border pointer");
     // Creo el elemento imagen
@@ -82,15 +84,19 @@ function addBarraDeTareas(app){
     p.textContent = text.textContent;
 
     appDivBarTarea.append(img,p);
-    console.log(comprobarBarTar(appDivBarTarea));
+
     if(!comprobarBarTar(appDivBarTarea)){
+        creado = comprobarBarTar(appDivBarTarea);
         const footer = document.querySelector("footer");
         footer.insertBefore(appDivBarTarea, footer.children[1]);
     }
+
+    return creado;
 }
 
+// Esta funcion comprueba que no este abierto ese elemento
 function comprobarBarTar(appDivBarTarea){
-    let add = false;
+    let error = false;
     const footer = document.querySelector("footer");
     const footerDiv = footer.querySelectorAll("div");
     const pAdd = appDivBarTarea.querySelector("p");
@@ -98,11 +104,12 @@ function comprobarBarTar(appDivBarTarea){
     footerDiv.forEach(div => {
         const pExist = div.querySelector("p");
         console.log(pExist.textContent+"=="+pAdd.textContent);
-        if(pExist.textContent == pAdd.textContent && !add) add = true;
+        if(pExist.textContent == pAdd.textContent && !error) error = true;
     })
-    return add;
+    return error;
 }
 
+// Esta funcion crea la ventana
 function crearVentana(app){
     // Selecciono el párrafo
     const text = app.querySelector("button");
@@ -118,9 +125,9 @@ function crearVentana(app){
                     <p>${text.textContent}</p>
                 </div>
                 <div>
-                    <button class="btn border pointer">_</button>
-                    <button class="btn border pointer">[]</button>
-                    <button class="btn border pointer">X</button>
+                    <button class="btn border pointer min">_</button>
+                    <button class="btn border pointer full">[]</button>
+                    <button class="btn border pointer close">X</button>
                 </div>
             </div>
             <!-- BACK FORWARD PROD CONTACT -->
@@ -168,6 +175,7 @@ function addContentScreen(text, screen){
     }
 }
 
+// Esta funcion crea el contenido de la ventana de shop
 function contentIShopPro(screen){
     const divProd = document.createElement("div");
     divProd.setAttribute("class", "screen-content borderStatic");
@@ -235,6 +243,7 @@ function contentIShopPro(screen){
     screen.append(divProd);
 }
 
+// Esta funcion crea el footer de la ventana
 function addFooter(screen){
     const footer = document.createElement("div");
     footer.setAttribute("class", "screen-content-footer");
@@ -274,8 +283,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const appDivIcon = document.querySelectorAll("#aps > div");
     appDivIcon.forEach(app => {
         app.addEventListener("click", () => {
-            addBarraDeTareas(app);
-            crearVentana(app);
+            let crear = addBarraDeTareas(app);
+            console.log(crear);
+            if(!crear) crearVentana(app);
         })
     })
 })
