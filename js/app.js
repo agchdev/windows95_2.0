@@ -166,7 +166,10 @@ function contentIShopPro(){
         const articleProd = document.createElement("article");
         articleProd.setAttribute("class", "screen-article pointer");
         articleProd.innerHTML = `
-        
+            <img class="border" src="${producto.img}" alt="">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.desc}</p>
+            <p>${producto.price}</p>
         `;
     });
 
