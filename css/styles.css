@@ -279,3 +279,35 @@ footer{
 .screen-article p:nth-child(4){
     font-weight: bolder;
 }
+.screen-content-valoraciones{  
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+}
+.screen-content-valoraciones-article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.screen-content-valoraciones > h2{
+    font-size: 3rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+.screen-content-valoraciones-article > div:nth-child(1){
+    width: 70px;
+}
+.screen-content-valoraciones-article > div:nth-child(2){
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+.screen-content-valoraciones-article > div > h4{
+    font-weight: bolder;
+}
