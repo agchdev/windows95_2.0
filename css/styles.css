@@ -23,6 +23,7 @@
     --main-color:  #008080;
     --secundary-color: #C0C0C0;
     --border-white: #EFEFEF;
+    --bgColor--screen: #D9D9D9;
 }
 /* RESET CSS */
 html, body, div, span, applet, object, iframe,
@@ -70,6 +71,11 @@ table {
 }
 /* CLASES POR DEFECTO */
 .border{
+    border: 2px solid #eee;
+    border-right-color: #000;
+    border-bottom-color: #000;
+}
+.borderStatic{
     border: 2px solid #eee;
     border-right-color: #000;
     border-bottom-color: #000;
@@ -173,4 +179,25 @@ footer{
 }
 .hora >p{
     font-size: 2rem;
+}
+/* screen */
+.screen{
+    position: absolute;
+    background-color: var(--bgColor--screen);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.screen-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.screen-header-logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.screen-header-logo > img{
+    width: 30px;
 }
