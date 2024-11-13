@@ -24,6 +24,7 @@
     --secundary-color: #C0C0C0;
     --border-white: #EFEFEF;
     --bgColor--screen: #D9D9D9;
+    --selected: #0827F5;
 }
 /* RESET CSS */
 html, body, div, span, applet, object, iframe,
@@ -186,18 +187,34 @@ footer{
     background-color: var(--bgColor--screen);
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: .2rem;
 }
 .screen-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--selected);
 }
 .screen-header-logo{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    color: white;
 }
 .screen-header-logo > img{
     width: 30px;
+}
+.screen-subHeader{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+.forward{
+    transform: rotate(180deg);
+}
+.screen-subHeader > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
