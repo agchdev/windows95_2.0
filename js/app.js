@@ -48,7 +48,7 @@ function addBarraDeTareas(app){
 }
 
 function comprobarBarTar(appDivBarTarea){
-    let add = true;
+    let add = false;
     const footer = document.querySelector("footer");
     const footerDiv = footer.querySelectorAll("div");
     const pAdd = appDivBarTarea.querySelector("p");
@@ -56,8 +56,7 @@ function comprobarBarTar(appDivBarTarea){
     footerDiv.forEach(div => {
         const pExist = div.querySelector("p");
         console.log(pExist.textContent+"=="+pAdd.textContent);
-        if(pExist.textContent == pAdd.textContent) add = true;
-        else add = false;
+        if(pExist.textContent == pAdd.textContent && !add) add = true;
     })
     return add;
 }
