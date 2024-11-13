@@ -1,6 +1,27 @@
 // ELEMENTOS DINÁMICOS DE DOM
 appIconImg = ["img/ico/recycle_bin_full.ico","img/ico/directory_open.ico", "img/ico/msie2.ico"];
 appIconTxt = ["Papelera", "Documentos", "InternetShop"];
+
+const productos = [
+    {
+        nombre: "EagWindows Green",
+        img: "img/IMAGEN CAMISETA3.jpg",
+        desc: "Camiseta con el logo EAG Windows verde",
+        price: "15,99€"
+    },
+    {
+        nombre: "EagWindows Blue",
+        img: "img/IMAGEN CAMISETA2.jpg",
+        desc: "Camiseta con el logo EAG Windows azul",
+        price: "15,99€"
+    },
+    {
+        nombre: "EagWindows Red",
+        img: "img/IMAGEN CAMISETA3.jpg",
+        desc: "Camiseta con el logo EAG Windows roja",
+        price: "15,99€"
+    }
+]
 // FUNCIONES
 function crearAppIcon(){ // Esta función creal la app del escritorio
     cont = 0;
@@ -64,6 +85,7 @@ function comprobarBarTar(appDivBarTarea){
 function crearVentana(app){
     // Selecciono el párrafo
     const text = app.querySelector("button");
+
     // Creo la ventana
     const screen = document.createElement("section");
     screen.setAttribute("class", "screen borderStatic");
@@ -113,6 +135,43 @@ function crearVentana(app){
             </div>
     `;
     document.querySelector("main").prepend(screen);
+
+    addContentScreen(text);
+    
+}
+
+function addContentScreen(text){
+    if (text == "InternetShop") {
+        
+    }
+}
+
+function contentIShopPro(){
+    const divProd = document.createElement("div");
+    divProd.setAttribute("class", "screen-content borderStatic");
+
+    const divBG = document.createElement("div");
+    divBG.setAttribute("class", "screen-content-banner");
+
+    const divContProd = document.createElement("div");
+    divContProd.setAttribute("class", "screen-content-productos");
+
+    const titProd = document.createElement("h2");
+    titProd.textContent = "productos";
+
+    const divArticleProd = document.createElement("div");
+    divArticleProd.setAttribute("class", "screen-content-productos-articles");
+    
+    productos.forEach(producto => {
+        const articleProd = document.createElement("article");
+        articleProd.setAttribute("class", "screen-article pointer");
+        articleProd.innerHTML = `
+        
+        `;
+    });
+
+    divContProd.append(titProd);
+    divProd.append(divBG, divContProd)
     
 }
 
