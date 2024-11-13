@@ -22,6 +22,27 @@ const productos = [
         price: "15,99€"
     }
 ]
+
+const valoraciones = [
+    {
+        nombre: "TuMorenito19",
+        img: "img/FOTODEPERFIL1.png",
+        stars: 5,
+        valoracion: "El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando"
+    },
+    {
+        nombre: "Iva_ahi",
+        img: "img/FOTODEPERFIL2.png",
+        stars: 5,
+        valoracion: "El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando"
+    },
+    {
+        nombre: "huevoNete",
+        img: "img/FOTODEPERFIL3.png",
+        stars: 5,
+        valoracion: "El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando"
+    }
+]
 // FUNCIONES
 function crearAppIcon(){ // Esta función creal la app del escritorio
     cont = 0;
@@ -136,17 +157,19 @@ function crearVentana(app){
     `;
     document.querySelector("main").prepend(screen);
 
-    addContentScreen(text);
+    addContentScreen(text, screen);
+
+    addFooter();
     
 }
 
-function addContentScreen(text){
+function addContentScreen(text, screen){
     if (text == "InternetShop") {
-        
+        contentIShopPro(screen);
     }
 }
 
-function contentIShopPro(){
+function contentIShopPro(screen){
     const divProd = document.createElement("div");
     divProd.setAttribute("class", "screen-content borderStatic");
 
@@ -179,15 +202,67 @@ function contentIShopPro(){
 
     const titVal = document.createElement("h2");
     titVal.textContent = "valoraciones";
-    
-    const articleValoraciones = document.createElement("article");
-    articleValoraciones.setAttribute("class", "screen-content-valoraciones-article");
 
-    
+    valoraciones.forEach(valoracion => {
+        const articleValoraciones = document.createElement("article");
+        articleValoraciones.setAttribute("class", "screen-content-valoraciones-article");
+
+        const divImgVal = document.createElement("div");
+        divImgVal.innerHTML = `
+            <img class="maxwidth-100" src="${valoracion.img}" alt="">
+        `;
+        const divNickStarDesc = document.createElement("div");
+        divNickStarDesc.innerHTML = `<h4>huevoNete</h4>`;
+        let divStars = document.createElement("div");
+        divStars.innerHTML = ``;
+        for (let i = 0; i < valoracion.stars; i++) {
+            divStars.innerHTML = `
+            <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.5 0L7.95934 4.49139H12.6819L8.86126 7.26722L10.3206 11.7586L6.5 8.98278L2.6794 11.7586L4.13874 7.26722L0.318133 4.49139H5.04066L6.5 0Z" fill="#FFE100"/>
+            </svg>`;
+        }
+        divNickStarDesc.append(divStars);
+        
+        divNickStarDesc.innerHTML = `<p>El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando</p>`;
+        
+    })
 
     divContProd.append(titProd, divArticleProd);
-    divProd.append(divBG, divContProd);
-    
+    divProd.append(divBG, divContProd, divValoraciones);
+    screen.append(divProd);
+}
+
+function addFooter(){
+    const footer = document.createElement("div");
+    footer.setAttribute("class", "screen-content-footer");
+    footer.innerHTML = `
+    <div class="screen-content-footer">
+        <div class="screen-content-footer-redes borderStatic">
+            <div>
+                <div class="pointer">
+                    <img class="maxwidth-100" src="img/ico/camera.ico" alt="">
+                    <p>Instagram</p>
+                </div>
+                <div class="pointer"> 
+                    <img class="maxwidth-100" src="img/ico/computer_explorer_2k.ico" alt="">
+                    <p>Twitter</p>
+                </div>
+                <div class="pointer">
+                    <img class="maxwidth-100" src="img/ico/help_book_cool.ico" alt="">
+                    <p>Facebook</p>
+                </div>
+            </div>
+            <div>
+                <a href="">Avisos legales</a>
+                <a href="">Políticas de privacidad</a>
+                <a href="">Condicones y servicios</a>
+            </div>
+        </div>
+        <div class="screen-content-footer-copyright borderStatic">
+            <p>copyright 2024 designed by Alejandro Aguayo</p>
+        </div>
+    </div>
+    `;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
