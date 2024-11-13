@@ -177,6 +177,14 @@ function contentIShopPro(){
     const divValoraciones = document.createElement("div");
     divValoraciones.setAttribute("class", "screen-content-valoraciones");
 
+    const titVal = document.createElement("h2");
+    titVal.textContent = "valoraciones";
+    
+    const articleValoraciones = document.createElement("article");
+    articleValoraciones.setAttribute("class", "screen-content-valoraciones-article");
+
+    
+
     divContProd.append(titProd, divArticleProd);
     divProd.append(divBG, divContProd);
     
