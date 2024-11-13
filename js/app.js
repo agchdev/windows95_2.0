@@ -40,14 +40,15 @@ function addBarraDeTareas(app){
     p.textContent = text.textContent;
 
     appDivBarTarea.append(img,p);
-    let add = comprobarBarTar(appDivBarTarea);
-    if(add){
+    console.log(comprobarBarTar(appDivBarTarea))
+    if(comprobarBarTar(appDivBarTarea)){
         const footer = document.querySelector("footer");
         footer.insertBefore(appDivBarTarea, footer.children[1]);
     }
 }
 
 function comprobarBarTar(appDivBarTarea){
+    let add = true;
     const footer = document.querySelector("footer");
     console.log(footer);
     const footerDiv = footer.querySelectorAll("div");
@@ -56,8 +57,10 @@ function comprobarBarTar(appDivBarTarea){
 
     footerDiv.forEach(div => {
         const pExist = div.querySelector("p");
-        if(pExist == pAdd) return false;
-        else return true;
+        console.log(pExist.textContent+"=="+pAdd.textContent);
+        if(pExist.textContent == pAdd.textContent) add = true;
+        else add = false;
+        return add;
     })
 }
 
