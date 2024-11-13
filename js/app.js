@@ -158,13 +158,12 @@ function crearVentana(app){
     document.querySelector("main").prepend(screen);
 
     addContentScreen(text, screen);
-
-    addFooter();
     
 }
 
 function addContentScreen(text, screen){
-    if (text == "InternetShop") {
+    console.log(text)
+    if (text.textContent == "InternetShop") {
         contentIShopPro(screen);
     }
 }
@@ -202,11 +201,11 @@ function contentIShopPro(screen){
 
     const titVal = document.createElement("h2");
     titVal.textContent = "valoraciones";
-
+    divValoraciones.append(titVal)
     valoraciones.forEach(valoracion => {
         const articleValoraciones = document.createElement("article");
         articleValoraciones.setAttribute("class", "screen-content-valoraciones-article");
-
+        
         const divImgVal = document.createElement("div");
         divImgVal.innerHTML = `
             <img class="maxwidth-100" src="${valoracion.img}" alt="">
@@ -216,23 +215,27 @@ function contentIShopPro(screen){
         let divStars = document.createElement("div");
         divStars.innerHTML = ``;
         for (let i = 0; i < valoracion.stars; i++) {
-            divStars.innerHTML = `
+            divStars.innerHTML += `
             <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.5 0L7.95934 4.49139H12.6819L8.86126 7.26722L10.3206 11.7586L6.5 8.98278L2.6794 11.7586L4.13874 7.26722L0.318133 4.49139H5.04066L6.5 0Z" fill="#FFE100"/>
             </svg>`;
         }
         divNickStarDesc.append(divStars);
         
-        divNickStarDesc.innerHTML = `<p>El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando</p>`;
-        
+        divNickStarDesc.innerHTML += `<p>El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando</p>`;
+        articleValoraciones.append(divImgVal, divNickStarDesc);
+        divValoraciones.append(articleValoraciones);
     })
+
+    
 
     divContProd.append(titProd, divArticleProd);
     divProd.append(divBG, divContProd, divValoraciones);
+    addFooter(divProd);
     screen.append(divProd);
 }
 
-function addFooter(){
+function addFooter(screen){
     const footer = document.createElement("div");
     footer.setAttribute("class", "screen-content-footer");
     footer.innerHTML = `
@@ -263,6 +266,7 @@ function addFooter(){
         </div>
     </div>
     `;
+    screen.append(footer);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
