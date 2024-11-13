@@ -61,12 +61,68 @@ function comprobarBarTar(appDivBarTarea){
     return add;
 }
 
+function crearVentana(app){
+    // Selecciono el párrafo
+    const text = app.querySelector("button");
+    // Creo la ventana
+    const screen = document.createElement("section");
+    screen.setAttribute("class", "screen borderStatic");
+    screen.innerHTML = `
+    <!-- CERRAR ABRIR Y MINIMIZAR -->
+            <div class="screen-header borderStatic">
+                <div class="screen-header-logo">
+                    <img src="img/ico/msie2.ico" alt="">
+                    <p>${text.textContent}</p>
+                </div>
+                <div>
+                    <button class="btn border pointer">_</button>
+                    <button class="btn border pointer">[]</button>
+                    <button class="btn border pointer">X</button>
+                </div>
+            </div>
+            <!-- BACK FORWARD PROD CONTACT -->
+            <div class="borderStatic">
+                <div class="screen-subHeader">
+                    <div>
+                        <img src="img/ico/backForward.png" alt="">
+                        <p>Back</p>
+                    </div>
+                    <div>
+                        <img class="forward" src="img/ico/backForward.png" alt="">
+                        <p>Forward</p>
+                    </div>
+                    <div>
+                        <img src="img/ico/msie2.ico" alt="">
+                        <p>Conócenos</p>
+                    </div>
+                    <div>
+                        <img src="img/ico/modem.ico" alt="">
+                        <p>Contacto</p>
+                    </div>
+                </div>
+            </div>
+            <!-- URL -->
+            <div class="screen-url borderStatic">
+                <p>Address</p>
+                <select name="url">
+                    <option value="Productos">https://Shop/${text.textContent}</option>
+                    <option value="Conócenos">https://Shop/Conócenos</option>
+                    <option value="Contacto">https://Shop/Contacto</option>
+                </select>
+                <p>Links</p>
+            </div>
+    `;
+    document.querySelector("main").prepend(screen);
+    
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     crearAppIcon();
     const appDivIcon = document.querySelectorAll("#aps > div");
     appDivIcon.forEach(app => {
         app.addEventListener("click", () => {
             addBarraDeTareas(app);
+            crearVentana(app);
         })
     })
 })
