@@ -171,10 +171,14 @@ function contentIShopPro(){
             <p>${producto.desc}</p>
             <p>${producto.price}</p>
         `;
+        divArticleProd.append(articleProd);
     });
 
-    divContProd.append(titProd);
-    divProd.append(divBG, divContProd)
+    const divValoraciones = document.createElement("div");
+    divValoraciones.setAttribute("class", "screen-content-valoraciones");
+
+    divContProd.append(titProd, divArticleProd);
+    divProd.append(divBG, divContProd);
     
 }
 
