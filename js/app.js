@@ -177,7 +177,7 @@ function contentIShopPro(screen){
 
     const divContProd = document.createElement("div");
     divContProd.setAttribute("class", "screen-content-productos");
-
+// pr
     const titProd = document.createElement("h2");
     titProd.textContent = "productos";
 
