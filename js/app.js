@@ -40,8 +40,25 @@ function addBarraDeTareas(app){
     p.textContent = text.textContent;
 
     appDivBarTarea.append(img,p);
+    let add = comprobarBarTar(appDivBarTarea);
+    if(add){
+        const footer = document.querySelector("footer");
+        footer.insertBefore(appDivBarTarea, footer.children[1]);
+    }
+}
+
+function comprobarBarTar(appDivBarTarea){
     const footer = document.querySelector("footer");
-    footer.insertBefore(appDivBarTarea, footer.children[1]);
+    console.log(footer);
+    const footerDiv = footer.querySelectorAll("div");
+    console.log(footerDiv)
+    const pAdd = appDivBarTarea.querySelector("p");
+
+    footerDiv.forEach(div => {
+        const pExist = div.querySelector("p");
+        if(pExist == pAdd) return false;
+        else return true;
+    })
 }
 
 document.addEventListener("DOMContentLoaded", () => {

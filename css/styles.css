@@ -148,6 +148,7 @@ footer{
     height: 50px;
     margin: auto;
     padding-left: 1rem;
+    gap: 10px;
 }
 .windowMenu > img{
     width: 50px;
