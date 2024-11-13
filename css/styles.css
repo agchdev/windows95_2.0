@@ -140,13 +140,28 @@ footer{
     height: 50px;
     margin: auto;
 }
+.divWM{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    height: 50px;
+    margin: auto;
+    padding-left: 1rem;
+}
 .windowMenu > img{
     width: 50px;
     transform: rotate(-20deg);
 }
+.imgWM{
+    width: 40px;
+}
 .windowMenu > p{
     font-size: 2rem;
     font-weight: bolder;
+}
+.pWM{
+    font-size: 1.5rem;
 }
 .hora{
     margin: auto;

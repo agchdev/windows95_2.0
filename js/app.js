@@ -21,12 +21,27 @@ function crearAppIcon(){ // Esta función creal la app del escritorio
 
 function addBarraDeTareas(app){
     const appDivBarTarea = document.createElement("div");
+    appDivBarTarea.setAttribute("class", "divWM border pointer");
+    // Creo el elemento imagen
     const img = document.createElement("img");
-    
-    // <div class="windowMenu border pointer">
-    //     <img class="maxwidth-100 pointer" src="img/logoEagWindow.png" alt="">
-    //     <p class="pointer">Start</p>
-    // </div>
+    // Añado clases a imagen
+    img.setAttribute("class", "imgWM maxwidth-100 pointer");
+    // Creo el elemento imagen
+    const p = document.createElement("p");
+    // Añado clases a párrafo
+    p.setAttribute("class", "pWM pointer");
+    // Selecciono la imagen
+    const link = app.querySelector("img");
+    // Cojo el link
+    img.src = link.src;
+    // Selecciono el párrafo
+    const text = app.querySelector("button");
+    // Le añado el texto
+    p.textContent = text.textContent;
+
+    appDivBarTarea.append(img,p);
+    const footer = document.querySelector("footer");
+    footer.insertBefore(appDivBarTarea, footer.children[1]);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
