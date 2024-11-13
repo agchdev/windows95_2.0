@@ -4,25 +4,37 @@ appIconTxt = ["Papelera", "Documentos", "InternetShop"];
 // FUNCIONES
 function crearAppIcon(){ // Esta función creal la app del escritorio
     cont = 0;
-    appIconImg.forEach(link => {
-        const appDivIcon = document.createElement("div");
-        appDivIcon.setAttribute("class", "pointer iconDesktop")
-        const img = document.createElement("img");
-        img.setAttribute("class", "pointer");
-        img.src = link;
-        const btn = document.createElement("button");
-        btn.setAttribute("class", "pointer");
-        btn.textContent = appIconTxt[cont];
-        cont++;
-        console.log(cont);
-        appDivIcon.append(img, btn);
-        document.querySelector("#aps").append(appDivIcon);
-    });
+    appIconImg.forEach(link => { // Recorro el array con las imágenes
+        const appDivIcon = document.createElement("div"); // Creo el div contenedor del logo y el texto
+        appDivIcon.setAttribute("class", "pointer iconDesktop"); // las clases para poder ser seleccionado y estilos
+        const img = document.createElement("img"); //Creo la imagen
+        img.setAttribute("class", "pointer"); // Añado las clases
+        img.src = link; // Le meto la imagen
+        const btn = document.createElement("button"); // Creo el botón
+        btn.setAttribute("class", "pointer"); // Añado las clases correspondientes
+        btn.textContent = appIconTxt[cont]; // Le meto el texto correspodiente creado en un array anterior 
+        cont++; // Le añado uno al contador
+        appDivIcon.append(img, btn); // Lo añado al div
+        document.querySelector("#aps").append(appDivIcon); // Finalmente al padre
+    });  
+}
+
+function addBarraDeTareas(app){
+    const appDivBarTarea = document.createElement("div");
+    const img = document.createElement("img");
     
+    // <div class="windowMenu border pointer">
+    //     <img class="maxwidth-100 pointer" src="img/logoEagWindow.png" alt="">
+    //     <p class="pointer">Start</p>
+    // </div>
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // ELEMENTOS EXISTENTES EN EL DOM
-    const sectionApp = document.querySelector("#aps");
     crearAppIcon();
+    const appDivIcon = document.querySelectorAll("#aps > div");
+    appDivIcon.forEach(app => {
+        app.addEventListener("click", () => {
+            addBarraDeTareas(app);
+        })
+    })
 })
