@@ -165,8 +165,10 @@ function crearVentana(app){
     document.querySelector("main").prepend(screen);
 
     addContentScreen(text, screen);
-    
+
     const borderSelectable = document.querySelectorAll(".borderSelectable");
+    let primerTextComp = true;
+
     borderSelectable.forEach(bselect => {
         // Variables
         let mover = false; // Nos indicará cuando está pulsando la ventana y cuando la suelta
@@ -174,14 +176,21 @@ function crearVentana(app){
         // Creamos un div auxiliar que me permitirá mover mis objetos
         const divAux = document.createElement("div");
         divAux.setAttribute("class", "divAux");
+        const textComp = bselect.querySelector("div > div > p");
+        let textCompGod = ""
+        if(primerTextComp){
+            textCompGod = textComp.textContent
+            console.log(textComp);
+            primerTextComp = false;
+        }
+        
 
         bselect.addEventListener("mousedown", (e) =>{
-            if (condition) {
-                
+            if (textCompGod == bselect.querySelector("div > div > p").textContent) {
+                mover = true;
+                document.body.prepend(divAux);
+                posX = e.offsetX;
             }
-            mover = true;
-            document.body.prepend(divAux);
-            posX = e.offsetX;
         })
         window.addEventListener("mousemove", (e) =>{
             if (mover){
