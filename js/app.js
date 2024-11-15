@@ -172,12 +172,28 @@ function crearVentana(app){
     let primerTextComp = true;
 
     borderSelectable.forEach(bselect => {
+        // Literalmente voy a copiar este codigo de abajo para hacer full y min
         const closes = document.querySelectorAll(".close");
-    
         closes.forEach(close => {
             close.addEventListener("click", () => {
                 const elPadre = close.parentElement.parentElement.parentElement;
                 elPadre.remove();
+            })
+        });
+        // Hasta aqui
+        const mins = document.querySelectorAll(".min");
+        mins.forEach(min => {
+            min.addEventListener("click", () => {
+                const elPadre = close.parentElement.parentElement.parentElement;
+                elPadre.remove();
+            })
+        });
+        const fulls = document.querySelectorAll(".full");
+        fulls.forEach(full => {
+            full.addEventListener("click", () => {
+                const elPadre = close.parentElement.parentElement.parentElement;
+                elPadre.style.width = "100%";
+                elPadre.style.height = "100vh";
             })
         });
         // Variables
@@ -189,6 +205,8 @@ function crearVentana(app){
         const divAux = document.createElement("div");
         divAux.setAttribute("class", "divAux");
         const textComp = bselect.parentElement.querySelector("div > div > p");
+
+        //No tiene ningun sentido que funcione, pero me alegro de que lo haga! Creo que se debe sobre todo al textComp de arriba pero prefiero no opinar
         let textCompGod = "";
         if(primerTextComp){
             textCompGod = textComp.textContent;
