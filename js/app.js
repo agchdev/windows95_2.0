@@ -278,6 +278,7 @@ function addFooter(screen){
     screen.append(footer);
 }
 
+// Parte del dom
 document.addEventListener("DOMContentLoaded", () => {
     crearAppIcon();
     const appDivIcon = document.querySelectorAll("#aps > div");
