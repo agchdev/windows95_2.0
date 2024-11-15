@@ -119,7 +119,7 @@ function crearVentana(app){
     screen.setAttribute("class", "screen borderStatic");
     screen.innerHTML = `
     <!-- CERRAR ABRIR Y MINIMIZAR -->
-            <div class="screen-header borderStatic">
+            <div class="screen-header borderStatic borderSelectable">
                 <div class="screen-header-logo">
                     <img src="img/ico/msie2.ico" alt="">
                     <p>${text.textContent}</p>
@@ -166,6 +166,19 @@ function crearVentana(app){
 
     addContentScreen(text, screen);
     
+    const borderSelectable = document.querySelectorAll(".borderSelectable");
+    borderSelectable.forEach(bselect => {
+        let mover = false;
+        bselect.addEventListener("mousedown", () =>{
+            mover = true;
+        })
+        bselect.addEventListener("mousemove", (e) =>{
+            if (mover) console.log("moviendose");
+        })
+        bselect.addEventListener("mouseup", () =>{
+            mover = false;
+        })
+    });
 }
 
 function addContentScreen(text, screen){
@@ -235,8 +248,6 @@ function contentIShopPro(screen){
         divValoraciones.append(articleValoraciones);
     })
 
-    
-
     divContProd.append(titProd, divArticleProd);
     divProd.append(divBG, divContProd, divValoraciones);
     addFooter(divProd);
@@ -289,4 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if(!crear) crearVentana(app);
         })
     })
+
+    
 })
