@@ -177,13 +177,12 @@ function crearVentana(app){
         const divAux = document.createElement("div");
         divAux.setAttribute("class", "divAux");
         const textComp = bselect.querySelector("div > div > p");
-        let textCompGod = ""
+        let textCompGod = "";
         if(primerTextComp){
-            textCompGod = textComp.textContent
+            textCompGod = textComp.textContent;
             console.log(textComp);
             primerTextComp = false;
         }
-        
 
         bselect.addEventListener("mousedown", (e) =>{
             if (textCompGod == bselect.querySelector("div > div > p").textContent) {
@@ -197,11 +196,13 @@ function crearVentana(app){
                 const { offsetX, offsetY } = e;
                 screen.style.top = offsetY+"px";
                 screen.style.left = -posX+offsetX+"px"; // Obra maestra del -posX para que la ventana siempre se empiece a mover desde donde seleccionas
+                screen.style.zIndex = 222;
             }
         })
         window.addEventListener("mouseup", () =>{
             mover = false;
             divAux.remove();
+            screen.style.zIndex = 111;
         })
     });
 }
