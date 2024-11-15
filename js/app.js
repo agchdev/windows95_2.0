@@ -168,15 +168,31 @@ function crearVentana(app){
     
     const borderSelectable = document.querySelectorAll(".borderSelectable");
     borderSelectable.forEach(bselect => {
-        let mover = false;
-        bselect.addEventListener("mousedown", () =>{
+        // Variables
+        let mover = false; // Nos indicará cuando está pulsando la ventana y cuando la suelta
+        let posX = 0; // Guardaré la posición de donde agarra la ventana
+        // Creamos un div auxiliar que me permitirá mover mis objetos
+        const divAux = document.createElement("div");
+        divAux.setAttribute("class", "divAux");
+
+        bselect.addEventListener("mousedown", (e) =>{
+            if (condition) {
+                
+            }
             mover = true;
+            document.body.prepend(divAux);
+            posX = e.offsetX;
         })
-        bselect.addEventListener("mousemove", (e) =>{
-            if (mover) console.log("moviendose");
+        window.addEventListener("mousemove", (e) =>{
+            if (mover){
+                const { offsetX, offsetY } = e;
+                screen.style.top = offsetY+"px";
+                screen.style.left = -posX+offsetX+"px"; // Obra maestra del -posX para que la ventana siempre se empiece a mover desde donde seleccionas
+            }
         })
-        bselect.addEventListener("mouseup", () =>{
+        window.addEventListener("mouseup", () =>{
             mover = false;
+            divAux.remove();
         })
     });
 }
