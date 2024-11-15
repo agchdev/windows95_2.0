@@ -104,7 +104,7 @@ table {
     width: 100%;
     height: 100vh;
     position: fixed;
-    z-index: 999;
+    z-index: 888;
     background-color: rgba(255, 0, 0, 0.226);
 }
 /* MAIN */
@@ -199,6 +199,7 @@ footer{
     flex-direction: column;
     padding: .2rem;
     font-family: 'leviwindows';
+    user-select: none;
 }
 .screen-header{
     display: flex;
@@ -211,6 +212,9 @@ footer{
     align-items: center;
     justify-content: space-around;
     color: white;
+    width: 100%;
+    justify-content: start;
+    gap: .2rem;
 }
 .screen-header-logo > img{
     width: 30px;
@@ -235,6 +239,24 @@ footer{
     display: flex;
     align-items: center;
     justify-content: start;
+}
+.close{
+    position: relative;
+    z-index: 999;
+}
+.min{
+    position: relative;
+    z-index: 999;
+}
+.full{
+    position: relative;
+    z-index: 999;
+}
+.btnMFC{
+    position: relative;
+    z-index: 999;
+    display: flex;
+    gap: .2rem;
 }
 
 /* CONTENT PRODUCTOS */

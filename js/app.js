@@ -119,12 +119,12 @@ function crearVentana(app){
     screen.setAttribute("class", "screen borderStatic");
     screen.innerHTML = `
     <!-- CERRAR ABRIR Y MINIMIZAR -->
-            <div class="screen-header borderStatic borderSelectable">
-                <div class="screen-header-logo">
+            <div class="screen-header borderStatic">
+                <div class="screen-header-logo borderSelectable">
                     <img src="img/ico/msie2.ico" alt="">
                     <p>${text.textContent}</p>
                 </div>
-                <div>
+                <div class="btnMFC">
                     <button class="btn border pointer min">_</button>
                     <button class="btn border pointer full">[]</button>
                     <button class="btn border pointer close">X</button>
@@ -166,17 +166,29 @@ function crearVentana(app){
 
     addContentScreen(text, screen);
 
+    
+
     const borderSelectable = document.querySelectorAll(".borderSelectable");
     let primerTextComp = true;
 
     borderSelectable.forEach(bselect => {
+        const closes = document.querySelectorAll(".close");
+    
+        closes.forEach(close => {
+            close.addEventListener("click", () => {
+                const elPadre = close.parentElement.parentElement.parentElement;
+                elPadre.remove();
+            })
+        });
         // Variables
+        console.log(bselect)
         let mover = false; // Nos indicará cuando está pulsando la ventana y cuando la suelta
-        let posX = 0; // Guardaré la posición de donde agarra la ventana
+        let posX = 0;
+        let posY = 0; // Guardaré la posición de donde agarra la ventana
         // Creamos un div auxiliar que me permitirá mover mis objetos
         const divAux = document.createElement("div");
         divAux.setAttribute("class", "divAux");
-        const textComp = bselect.querySelector("div > div > p");
+        const textComp = bselect.parentElement.querySelector("div > div > p");
         let textCompGod = "";
         if(primerTextComp){
             textCompGod = textComp.textContent;
@@ -187,14 +199,15 @@ function crearVentana(app){
         bselect.addEventListener("mousedown", (e) =>{
             if (textCompGod == bselect.querySelector("div > div > p").textContent) {
                 mover = true;
-                document.body.prepend(divAux);
+                document.body.querySelector("main").prepend(divAux);
                 posX = e.offsetX;
+                posY = e.offsetY;
             }
         })
         window.addEventListener("mousemove", (e) =>{
             if (mover){
                 const { offsetX, offsetY } = e;
-                screen.style.top = offsetY+"px";
+                screen.style.top = -posY+offsetY+"px";
                 screen.style.left = -posX+offsetX+"px"; // Obra maestra del -posX para que la ventana siempre se empiece a mover desde donde seleccionas
                 screen.style.zIndex = 222;
             }
@@ -326,6 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(!crear) crearVentana(app);
         })
     })
+    
 
     
 })
