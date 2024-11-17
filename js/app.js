@@ -274,7 +274,13 @@ function compScreen(textScreen, screen){
 }
 
 function barElDelete(elPadre){
-    
+    console.log(elPadre);
+    textPadre = elPadre.querySelector("div > div > p");
+    const footer = document.querySelector("footer");
+    footer.forEach(el => {
+        textComp = el.querySelector("p")
+        console.log(textComp)
+    });
 }
 
 function addContentScreen(text, screen){
