@@ -43,6 +43,9 @@ const valoraciones = [
         valoracion: "El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando"
     }
 ]
+
+let screenUp = []; // Creo un array donde voy a almacenar las ventanas para ir colocandolas unas encimas de otras
+
 // FUNCIONES
 function crearAppIcon(){ // Esta función creal la app del escritorio
     cont = 0;
@@ -220,6 +223,7 @@ function crearVentana(app){
                 document.body.querySelector("main").prepend(divAux);
                 posX = e.offsetX;
                 posY = e.offsetY;
+                screenUp.push(screen);
             }
         })
         window.addEventListener("mousemove", (e) =>{
