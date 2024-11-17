@@ -181,6 +181,7 @@ function crearVentana(app){
             close.addEventListener("click", () => {
                 const elPadre = close.parentElement.parentElement.parentElement;
                 elPadre.remove();
+                barElDelete(elPadre);
             })
         });
         // Hasta aqui
@@ -223,7 +224,7 @@ function crearVentana(app){
                 document.body.querySelector("main").prepend(divAux);
                 posX = e.offsetX;
                 posY = e.offsetY;
-                screenUp.push(screen);
+                posScreen(screen);
             }
         })
         window.addEventListener("mousemove", (e) =>{
@@ -231,15 +232,49 @@ function crearVentana(app){
                 const { offsetX, offsetY } = e;
                 screen.style.top = -posY+offsetY+"px";
                 screen.style.left = -posX+offsetX+"px"; // Obra maestra del -posX para que la ventana siempre se empiece a mover desde donde seleccionas
-                screen.style.zIndex = 222;
             }
         })
         window.addEventListener("mouseup", () =>{
             mover = false;
             divAux.remove();
-            screen.style.zIndex = 111;
         })
     });
+}
+
+// Pone la posicion en z de la pantalla que corresponda
+function posScreen(screen){
+    textScreen = screen.querySelector("div > div > p");
+    let add = compScreen(textScreen, screen);
+    console.log(add);
+    screenUp.forEach( el => {
+        textEl = el.querySelector("div > div > p");
+        if(textScreen.textContent == textEl.textContent) el.style.zIndex = 122;
+        else el.style.zIndex = 111;
+    });
+}
+
+// Comprueba si la ventana ya ha sido agregada al array
+function compScreen(textScreen, screen){
+    let add = true;
+    if (screenUp.length == 0){
+        screenUp.push(screen);
+    } 
+    else{
+        screenUp.forEach( el => {
+            console.log(el);
+            textEl = el.querySelector("div > div > p");
+            if(textScreen.textContent == textEl.textContent) add = false;
+            if(add){
+                screenUp.push(screen)
+            }
+        });
+    }
+    console.log(screenUp);
+    return add;
+}
+
+function barElDelete(elPadre){
+    
 }
 
 function addContentScreen(text, screen){
