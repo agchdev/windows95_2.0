@@ -276,10 +276,12 @@ function compScreen(textScreen, screen){
 function barElDelete(elPadre){
     console.log(elPadre);
     textPadre = elPadre.querySelector("div > div > p");
-    const footer = document.querySelector("footer");
-    footer.forEach(el => {
+    const footerDiv = document.querySelectorAll("footer > div");
+    footerDiv.forEach(el => {
         textComp = el.querySelector("p")
-        console.log(textComp)
+        if(textComp.textContent == textPadre.textContent){
+            textComp.parentElement.remove();
+        }
     });
 }
 
