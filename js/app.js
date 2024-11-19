@@ -173,10 +173,34 @@ function crearVentana(app){
 
     addContentScreen(text, screen);
 
-    
-
     const borderSelectable = document.querySelectorAll(".borderSelectable");
     let primerTextComp = true;
+
+    // Creamos un div auxiliar que me permitirá mover mis objetos
+    const divAux = document.createElement("div");
+    divAux.setAttribute("class", "divAux");
+
+    //SCALES SCREEN
+    //Variables
+    const scaleScreenAR = document.querySelector(".scaleScreenAR");
+    const scaleScreenAB = document.querySelector(".scaleScreenAB");
+    const scaleScreenDER = document.querySelector(".scaleScreenDER");
+    const scaleScreenIZQ = document.querySelector(".scaleScreenIZQ");
+    let escalar = false;
+    let posX = 0;
+    let posY = 0; // Guardaré la posición de donde agarra la ventana
+
+    scaleScreenAR.addEventListener("mousedown", (e) => {
+        escalar = true;
+        screen.style.height += 1;
+        screen.style.width += 1;
+    })
+    scaleScreenAR.addEventListener("mousemove", (e) => {
+        escalar = true;
+        screen.style.height += 1;
+        screen.style.width += 1;
+    })
+    //FIN SCALES SCREEN
 
     borderSelectable.forEach(bselect => {
         // Literalmente voy a copiar este codigo de abajo para hacer full y min
@@ -208,9 +232,6 @@ function crearVentana(app){
         let mover = false; // Nos indicará cuando está pulsando la ventana y cuando la suelta
         let posX = 0;
         let posY = 0; // Guardaré la posición de donde agarra la ventana
-        // Creamos un div auxiliar que me permitirá mover mis objetos
-        const divAux = document.createElement("div");
-        divAux.setAttribute("class", "divAux");
         const textComp = bselect.parentElement.querySelector("div > div > p");
 
         //No tiene ningun sentido que funcione, pero me alegro de que lo haga! Creo que se debe sobre todo al textComp de arriba pero prefiero no opinar
