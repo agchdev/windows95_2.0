@@ -188,8 +188,11 @@ function crearVentana(app){
         let escalar = false;
         let altura = 0;
         let ancho = 0;
+        let height = 0;
         el.addEventListener("mousedown", () => {
             escalar = true;
+            height= window.getComputedStyle(el.parentElement).height;
+            height = height.replace("px", "");
             altura = window.getComputedStyle(el.parentElement).height;
             ancho = window.getComputedStyle(el.parentElement).width;
             ancho = ancho.replace("px", "");
@@ -202,14 +205,16 @@ function crearVentana(app){
                 // document.body.querySelector("main").prepend(divAux);
                 ancho++;
                 altura++;
-                screen.style.width = ancho+"px";
-                screen.style.height = altura+"px";
+                height++;
+                el.parentElement.querySelector(".screen-content").style.height = height+"px";
+                el.parentElement.style.width = ancho+"px";
+                el.parentElement.style.height = altura+"px";
                 console.log(ancho)
                 console.log(altura)
             }
             
         })
-        el.addEventListener("mouseup", () => {
+        window.addEventListener("mouseup", () => {
             divAux.remove();
             escalar=false;
         })
