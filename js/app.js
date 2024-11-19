@@ -209,9 +209,9 @@ function crearVentana(app){
             if (escalar){
                 console.log("moviendo");
                 // document.body.querySelector("main").prepend(divAux);
-                ancho++;
-                altura++;
-                height++;
+                ancho++; // Sumo 1 al ancho
+                altura++; // Sumo 1 al alto
+                height++; // Sumo 1 al alto del contenido de la ventana
                 el.parentElement.querySelector(".screen-content").style.height = height+"px";
                 el.parentElement.style.width = ancho+"px";
                 el.parentElement.style.height = altura+"px";
@@ -221,7 +221,6 @@ function crearVentana(app){
             
         })
         window.addEventListener("mouseup", () => {
-            divAux.remove();
             escalar=false;
         })
     });

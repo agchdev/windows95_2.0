@@ -208,7 +208,7 @@ footer{
 .scaleScreen{
     position: absolute;
     background-color: transparent;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     z-index: 900;
 }
 .scaleScreenAR{
