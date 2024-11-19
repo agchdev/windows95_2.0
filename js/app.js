@@ -191,11 +191,17 @@ function crearVentana(app){
         let height = 0;
         el.addEventListener("mousedown", () => {
             escalar = true;
+            // Saco la altura del screen-content
             height= window.getComputedStyle(el.parentElement).height;
+            // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
             height = height.replace("px", "");
+            // Saco la altura de la ventana
             altura = window.getComputedStyle(el.parentElement).height;
+            // Saco la anchura de la ventana
             ancho = window.getComputedStyle(el.parentElement).width;
+            // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
             ancho = ancho.replace("px", "");
+            // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
             altura = altura.replace("px", "");
             console.log(ancho)
         })
