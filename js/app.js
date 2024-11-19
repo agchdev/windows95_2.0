@@ -164,10 +164,10 @@ function crearVentana(app){
                 </select>
                 <p>Links</p>
             </div>
-            <button class="scaleScreenAR"></button>
-            <button class="scaleScreenAB"></button>
-            <button class="scaleScreenDER"></button>
-            <button class="scaleScreenIZQ"></button>
+            <div class="scaleScreen scaleScreenAR"></div>
+            <div class="scaleScreen scaleScreenAB"></div>
+            <div class="scaleScreen scaleScreenDER"></div>
+            <div class="scaleScreen scaleScreenIZQ"></div>
     `;
     document.querySelector("main").prepend(screen);
 
@@ -182,24 +182,38 @@ function crearVentana(app){
 
     //SCALES SCREEN
     //Variables
-    const scaleScreenAR = document.querySelector(".scaleScreenAR");
-    const scaleScreenAB = document.querySelector(".scaleScreenAB");
-    const scaleScreenDER = document.querySelector(".scaleScreenDER");
-    const scaleScreenIZQ = document.querySelector(".scaleScreenIZQ");
-    let escalar = false;
-    let posX = 0;
-    let posY = 0; // Guardaré la posición de donde agarra la ventana
+    const scaleScreen = document.querySelectorAll(".scaleScreen");
 
-    scaleScreenAR.addEventListener("mousedown", (e) => {
-        escalar = true;
-        screen.style.height += 1;
-        screen.style.width += 1;
-    })
-    scaleScreenAR.addEventListener("mousemove", (e) => {
-        escalar = true;
-        screen.style.height += 1;
-        screen.style.width += 1;
-    })
+    scaleScreen.forEach(el => {
+        let escalar = false;
+        let altura = 0;
+        let ancho = 0;
+        el.addEventListener("mousedown", () => {
+            escalar = true;
+            altura = window.getComputedStyle(el.parentElement).height;
+            ancho = window.getComputedStyle(el.parentElement).width;
+            ancho = ancho.replace("px", "");
+            altura = altura.replace("px", "");
+            console.log(ancho)
+        })
+        window.addEventListener("mousemove", (e) => {
+            if (escalar){
+                console.log("moviendo");
+                // document.body.querySelector("main").prepend(divAux);
+                ancho++;
+                altura++;
+                screen.style.width = ancho+"px";
+                screen.style.height = altura+"px";
+                console.log(ancho)
+                console.log(altura)
+            }
+            
+        })
+        el.addEventListener("mouseup", () => {
+            divAux.remove();
+            escalar=false;
+        })
+    });
     //FIN SCALES SCREEN
 
     borderSelectable.forEach(bselect => {
