@@ -164,6 +164,10 @@ function crearVentana(app){
                 </select>
                 <p>Links</p>
             </div>
+            <button class="scaleScreenAR"></button>
+            <button class="scaleScreenAB"></button>
+            <button class="scaleScreenDER"></button>
+            <button class="scaleScreenIZQ"></button>
     `;
     document.querySelector("main").prepend(screen);
 
@@ -188,16 +192,15 @@ function crearVentana(app){
         const mins = document.querySelectorAll(".min");
         mins.forEach(min => {
             min.addEventListener("click", () => {
-                const elPadre = close.parentElement.parentElement.parentElement;
+                const elPadre = min.parentElement.parentElement.parentElement;
                 elPadre.remove();
             })
         });
         const fulls = document.querySelectorAll(".full");
         fulls.forEach(full => {
             full.addEventListener("click", () => {
-                const elPadre = close.parentElement.parentElement.parentElement;
-                elPadre.style.width = "100%";
-                elPadre.style.height = "100vh";
+                const elPadre = full.parentElement.parentElement.parentElement;
+                fullAjuste(elPadre);
             })
         });
         // Variables
@@ -240,7 +243,20 @@ function crearVentana(app){
         })
     });
 }
-
+function fullAjuste(elPadre){
+    let content = elPadre.querySelector(".screen-content");
+    if(elPadre.style.width == "100%"){
+        content.style.height = "40vh";
+        elPadre.style.width = "auto";
+        elPadre.style.height = "auto";
+    }else{
+        elPadre.style.top = "0";
+        elPadre.style.left = "0";
+        content.style.height = "90vh";
+        elPadre.style.width = "100%";
+        elPadre.style.height = "100vh";
+    }
+}
 // Pone la posicion en z de la pantalla que corresponda
 function posScreen(screen){
     textScreen = screen.querySelector("div > div > p");
