@@ -157,7 +157,7 @@ function crearVentana(app){
             <!-- URL -->
             <div class="screen-url borderStatic">
                 <p>Address</p>
-                <select name="url">
+                <select class="urlSelectShop" name="url">
                     <option value="Productos">https://Shop/${text.textContent}</option>
                     <option value="Conócenos">https://Shop/Conócenos</option>
                     <option value="Contacto">https://Shop/Contacto</option>
@@ -292,7 +292,7 @@ function fullAjuste(elPadre){
     let content = elPadre.querySelector(".screen-content");
     if(elPadre.style.width == "100%"){
         content.style.height = "40vh";
-        elPadre.style.width = "auto";
+        elPadre.style.width = "700px";
         elPadre.style.height = "auto";
     }else{
         elPadre.style.top = "0";
@@ -417,7 +417,66 @@ function contentIShopPro(screen){
     divProd.append(divBG, divContProd, divValoraciones);
     addFooter(divProd);
     screen.append(divProd);
+
+    // SELECCION DE OTRAS VENTANAS DENTRO DE LA SHOP
+    const urlSelectShop = document.querySelector(".urlSelectShop");
+    urlSelectShop.addEventListener("change", (e) => {
+        const opc = e.target.value;
+        cambiarContentShop(screen, opc);
+    })
 }
+
+function crearContacto(screen){
+    const divProd = document.createElement("div");
+    divProd.setAttribute("class", "screen-content borderStatic");
+    divProd.innerHTML = `
+        <div class="imgText">
+            <div>
+                <img src="img/conocenos.jpg" alt="">
+            </div>
+            <div>
+                <h2>EAGS 95 SHOP</h2>
+                <p>
+                Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur".
+                </p>
+            </div>
+        </div>
+        <div class="ubi">
+            <div>
+                <h3>Donde estamos?</h3>
+                <p>En tienda física, solo cobramos en pesetas.</p>
+                <p>De Lunes a Viernes:</p>
+                <p>7:00 h a 22:00 h</p>
+                <p>Fines de semana y festivos:</p>
+                <p>10:00 h a 20:00 h</p>
+                <p>La web abierta las 24 horas del dia jejejeje</p>
+            </div>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2183.5406628568153!2d-3.6070775630352863!3d37.18887703142041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1732194812686!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    `;
+    screen.append(divProd)
+}
+
+function crearConocenos(screen){
+
+}
+
+// ESTA FUNCION SE ENCARGA DE VER QUE OPCIÓN HA ESCOGIDO PARA MOSTRAR EL NUEVO CONTENIDO 
+function cambiarContentShop(screen, opc){
+    if(document.querySelector(".screen-content")){
+        let screenRemover = document.querySelector(".screen-content");
+        screenRemover.remove();
+    }
+    
+    if(opc == "Contacto") crearContacto(screen);
+    if(opc == "Conócenos") crearConocenos(screen);
+    if(opc == "Productos") contentIShopPro(screen);
+}
+
+
+
 
 // Esta funcion crea el footer de la ventana
 function addFooter(screen){
