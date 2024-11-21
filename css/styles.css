@@ -450,5 +450,18 @@ footer{
     max-width: 100%;
 }
 .ubi{
-    
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    background-color: var(--footerBG);
+}
+.ubi h3{
+    font-weight: bolder;
+}
+.ubi > div{
+    width: 50%;
+}
+.ubi{
+    padding: 1rem 0;
 }
