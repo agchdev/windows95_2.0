@@ -490,6 +490,7 @@ footer{
     background-color: var(--selected);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: white;
     padding: .2rem;
 }
@@ -521,7 +522,7 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 60%;
     margin: auto;
 }
 .formContacto > div:nth-child(1){
@@ -531,11 +532,22 @@ footer{
     width: 100%;
     color: white;
 }
-.formContacto > div:nth-child(2){
+.formContacto > form{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+.formContacto > form h3{
+    font-size: 3rem;
+    font-weight: bolder;
+}
+.formContacto > form > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes shake {
