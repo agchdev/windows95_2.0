@@ -459,21 +459,29 @@ function crearContacto(screen){
             <div class="modalError borderStatic">
                 <div class="borderStatic">
                     <p>Error por no comprar</p>
-                    <p class="btn border pointer red">X</p>
+                    <p class="btn border pointer red btnError">X</p>
                 </div>
                 <div class="contentModalError">
                     <div>
-                        <img href="../img/ico/msg_warning.ico" alt="imagen"/>
+                        <img src="img/ico/msg_warning.ico" alt="">
                         <p>Compra productos para mejorar en la vida</p>
                     </div>
                     <div>
-                        <button>OK</button>
+                        <button class=" border">OK</button>
                     </div>
                 </div>
             </div>
         </div>
     `;
     screen.append(divProd)
+    const btnError = document.querySelector(".btnError");
+    const modalError = document.querySelector(".modalError");
+    btnError.addEventListener("click", () => {
+        modalError.classList.add("shake");
+        setTimeout(() => {
+            modalError.classList.remove("shake");
+        }, 820);
+    })
 }
 
 function crearConocenos(screen){
