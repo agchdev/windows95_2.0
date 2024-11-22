@@ -524,6 +524,7 @@ footer{
     align-items: center;
     width: 60%;
     margin: auto;
+    background-color: var(--footerBG);
 }
 .formContacto > div:nth-child(1){
     display: flex;
@@ -532,7 +533,7 @@ footer{
     width: 100%;
     color: white;
 }
-.formContacto > form{
+.formContacto > div:nth-child(2){
     display: flex;
     justify-content: center;
     align-items: center;
@@ -540,16 +541,83 @@ footer{
     gap: 1rem;
     padding: 2rem;
 }
-.formContacto > form h3{
+.h3form{
     font-size: 3rem;
     font-weight: bolder;
 }
-.formContacto > form > div{
+.formContacto >  div:nth-child(2) > div{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+#preguntas{
+    width: 80%;
+    margin: auto;
+}
+#preguntas a{
+    text-decoration: none;
+    color: var(--selected);
+}
+#preguntas a:hover{
+    color: white;
+}
+details
+{
+    margin-top: 1rem;
+    transition: height 1s ease;
+    overflow: hidden;
+}
 
+details:not([open])
+{
+    height: 3.25em;
+}
+.a[open]
+{
+    height: 8em;
+}
+.b[open]
+{
+    height: 8em;
+}
+.c[open]
+{
+    height: 8em;
+}
+.d[open]
+{
+    height: 8em;
+}
+.e[open]
+{
+    height: 8em;
+}
+.f[open]
+{
+    height: 9em;
+}
+.g[open]
+{
+    height: 29.50em;
+}
+.h[open]
+{
+    height: 8em;
+}
+.i[open]
+{
+    height: 8em;
+}
+#preguntas hr{
+    border: 0.1px solid black;
+    margin-top: 1rem;
+}
+.h3contanct{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 3rem;
+    margin: 3rem 0;
+}
 @keyframes shake {
     10%, 90% {
         transform: translate3d(-1px, 0, 0);

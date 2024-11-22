@@ -41,7 +41,7 @@ const valoraciones = [
         img: "img/FOTODEPERFIL3.png",
         stars: 5,
         valoracion: "El mejor producto, tiene la mejor calidad que he visto en mi vida, que ganas de seguir comprando"
-    }
+    },
 ]
 
 let screenUp = []; // Creo un array donde voy a almacenar las ventanas para ir colocandolas unas encimas de otras
@@ -495,8 +495,8 @@ function crearContacto(screen){
                 <p>Error por no comprar</p>
                 <p class="btn border pointer red btnError">X</p>
             </div>
-            <form action="#" method="post">
-                <h3>CONTACTO</h3>
+            <div class="formContent">
+                <h3 class="h3form">CONTACTO</h3>
                 <input type="text" name="nombre" placeholder="nombre">
                 <input type="email" name="email" placeholder="email">
                 <textarea name="duda" placeholder="alguna duda o nada"></textarea>
@@ -504,12 +504,44 @@ function crearContacto(screen){
                     <input type="checkbox" name="terms">
                     <p>i read & Agree to Terms and Conditions</p>
                 </div>
-                <button>Enviar</button>
-            </form>
+                <button class="btnEnviar">Enviar</button>
+            </div>
+        </div>
+        <h3 class="h3contanct">PREGUNTAS FRECUENTES</h3>
+        <div id="preguntas">
+            <details class="a">
+                <summary>¿Los pagos son seguros?<hr></summary>
+                <p>HBO Max es una experiencia de streaming espectacular que te trae las mejores historias de Warner Bros., HBO, Max, DC, Cartoon Network y mucho más, juntos por primera vez.</p>
+            </details>
+            
+            <details class="b">
+                <summary>¿Se aceptan devoluciones?<hr></summary>
+                
+                <p>Si tienes algún problema al suscribirte o al acceder a HBO Max, encontrarás ayuda en nuestro <a href="">Centro de Ayuda</a>. ¡Estarás viendo HBO Max antes de que las palomitas estén listas!</p>
+            </details>
+            <details class="c">
+                <summary>¿Por que el proyecto de los de primero es mejor que los de segundo?<hr></summary>
+                
+                <p>Con los perfiles de los niños y los controles parentales personalizados, las familias pueden reír y aprender con personajes como Bugs Bunny, Peppa Pig, Harry Potter y más.</p>
+            </details>
+            <details class="d">
+                <summary>¿Tortilla con o sin cebolla?<hr></summary>
+                
+                <p>HBO Max tiene un precio mensual de 9,99 €. Puedes ahorrar un 41 % si pagas el precio anual de 69,99 € por adelantado.</p>
+            </details>
         </div>
     `;
     addFooter(divProd);
-    screen.append(divProd)
+    screen.append(divProd);
+    const btnEnviar = document.querySelector(".btnEnviar");
+    const formContent = document.querySelector(".formContent");
+    btnEnviar.addEventListener("click", (e) => {
+        e.preventDefault();
+        formContent.innerHTML = `
+            <h3 class="h3form">CONTACTO</h3>
+            <img src="img/ico/check.ico" alt="">
+        `;
+    })
 }
 
 // ESTA FUNCION SE ENCARGA DE VER QUE OPCIÓN HA ESCOGIDO PARA MOSTRAR EL NUEVO CONTENIDO 
