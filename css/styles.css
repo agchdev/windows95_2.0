@@ -434,6 +434,10 @@ footer{
 .imgText > div:nth-child(1){
     display: flex;
     justify-content: end;
+    margin-right: 3rem;
+}
+.imgText > div:nth-child(1) img{
+    width: 300px;
 }
 .imgText > div:nth-child(2){
     display: flex;
@@ -474,7 +478,7 @@ footer{
     padding: 1rem 0;
 }
 .divError{
-    height: 40vh;
+    padding: 3rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -500,6 +504,7 @@ footer{
     align-items: center;
     flex-direction: column;
     padding: 1rem;
+    font-size: 1.5rem;
 }
 .contentModalError > div:nth-child(1){
     display: flex;
@@ -509,6 +514,28 @@ footer{
 }
 .shake{
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.formContacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+.formContacto > div:nth-child(1){
+    display: flex;
+    background-color: var(--selected);
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+}
+.formContacto > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @keyframes shake {

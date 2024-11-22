@@ -426,13 +426,13 @@ function contentIShopPro(screen){
     })
 }
 
-function crearContacto(screen){
+function crearConocenos(screen){
     const divProd = document.createElement("div");
     divProd.setAttribute("class", "screen-content borderStatic");
     divProd.innerHTML = `
         <div class="imgText">
             <div>
-                <img src="img/conocenos.jpg" alt="">
+                <img class="borderStatic" src="img/conocenos.jpg" alt="">
             </div>
             <div>
                 <h2>EAGS 95 SHOP</h2>
@@ -441,7 +441,7 @@ function crearContacto(screen){
                 </p>
             </div>
         </div>
-        <div class="ubi">
+        <div class="ubi borderStatic">
             <div>
                 <h3>Donde estamos?</h3>
                 <p>En tienda física, solo cobramos en pesetas.</p>
@@ -467,13 +467,15 @@ function crearContacto(screen){
                         <p>Compra productos para mejorar en la vida</p>
                     </div>
                     <div>
-                        <button class=" border">OK</button>
+                        <button class="border pointer">OK</button>
                     </div>
                 </div>
             </div>
         </div>
     `;
+    addFooter(divProd);
     screen.append(divProd)
+    
     const btnError = document.querySelector(".btnError");
     const modalError = document.querySelector(".modalError");
     btnError.addEventListener("click", () => {
@@ -484,8 +486,30 @@ function crearContacto(screen){
     })
 }
 
-function crearConocenos(screen){
-
+function crearContacto(screen){
+    const divProd = document.createElement("div");
+    divProd.setAttribute("class", "screen-content borderStatic");
+    divProd.innerHTML = `
+        <div class="formContacto borderStatic">
+            <div class="borderStatic">
+                <p>Error por no comprar</p>
+                <p class="btn border pointer red btnError">X</p>
+            </div>
+            <form action="#" method="post">
+                <h3>CONTACTO</h3>
+                <input type="text" name="nombre" placeholder="nombre">
+                <input type="email" name="email" placeholder="email">
+                <textarea name="duda" placeholder="alguna duda o nada"></textarea>
+                <div>
+                    <input type="checkbox" name="terms">
+                    <p>i read & Agree to Terms and Conditions</p>
+                </div>
+                <button>Enviar</button>
+            </form>
+        </div>
+    `;
+    addFooter(divProd);
+    screen.append(divProd)
 }
 
 // ESTA FUNCION SE ENCARGA DE VER QUE OPCIÓN HA ESCOGIDO PARA MOSTRAR EL NUEVO CONTENIDO 
