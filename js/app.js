@@ -455,6 +455,23 @@ function crearContacto(screen){
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2183.5406628568153!2d-3.6070775630352863!3d37.18887703142041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1732194812686!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
+        <div class="divError">
+            <div class="modalError borderStatic">
+                <div class="borderStatic">
+                    <p>Error por no comprar</p>
+                    <p class="btn border pointer red">X</p>
+                </div>
+                <div class="contentModalError">
+                    <div>
+                        <img href="../img/ico/msg_warning.ico" alt="imagen"/>
+                        <p>Compra productos para mejorar en la vida</p>
+                    </div>
+                    <div>
+                        <button>OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
     screen.append(divProd)
 }
