@@ -45,6 +45,7 @@ const valoraciones = [
 ]
 
 let screenUp = []; // Creo un array donde voy a almacenar las ventanas para ir colocandolas unas encimas de otras
+let fullScreen = false;
 
 // FUNCIONES
 function crearAppIcon(){ // Esta función creal la app del escritorio
@@ -247,8 +248,9 @@ function crearVentana(app){
         const fulls = document.querySelectorAll(".full");
         fulls.forEach(full => {
             full.addEventListener("click", () => {
-                const elPadre = full.parentElement.parentElement.parentElement;
-                fullAjuste(elPadre);
+                    const elPadre = full.parentElement.parentElement.parentElement;
+                    fullAjuste(elPadre);
+                
             })
         });
         // Variables
@@ -294,12 +296,14 @@ function fullAjuste(elPadre){
         content.style.height = "40vh";
         elPadre.style.width = "700px";
         elPadre.style.height = "auto";
+        fullScreen = true;
     }else{
         elPadre.style.top = "0";
         elPadre.style.left = "0";
         content.style.height = "90vh";
         elPadre.style.width = "100%";
         elPadre.style.height = "100vh";
+        fullScreen = false;
     }
 }
 // Pone la posicion en z de la pantalla que corresponda
