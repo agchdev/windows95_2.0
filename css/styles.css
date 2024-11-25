@@ -284,19 +284,19 @@ footer{
 }
 .close{
     position: relative;
-    z-index: 999;
+    z-index: 855;
 }
 .min{
     position: relative;
-    z-index: 999;
+    z-index: 855;
 }
 .full{
     position: relative;
-    z-index: 999;
+    z-index: 855;
 }
 .btnMFC{
     position: relative;
-    z-index: 999;
+    z-index: 855;
     display: flex;
     gap: .2rem;
 }

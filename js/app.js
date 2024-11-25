@@ -94,7 +94,7 @@ function addBarraDeTareas(app){
         const footer = document.querySelector("footer");
         footer.insertBefore(appDivBarTarea, footer.children[1]);
     }
-
+    
     return creado;
 }
 
