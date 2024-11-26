@@ -579,7 +579,7 @@ function cambiarContentShop(screen, opc){
     if(opc == "EagWindows Green" || opc == "EagWindows Blue" || opc == "EagWindows Red") contentBuy(screen, opc);
 }
 
-
+// Funcion que muestra el contenido de la pantalla de compra
 function contentBuy(screen, opc){
     const divProd = document.createElement("div");
     let cantidad = 0;
@@ -602,8 +602,14 @@ function contentBuy(screen, opc){
     </div>
     
     `;
-    addFooter(divProd);
-    screen.append(divProd);
+    addFooter(divProd); // añado footer
+    screen.append(divProd); // añado la el contenido de la ventana
+
+    if(screen.offsetWidth < 750){
+        document.querySelector(".buy-content").style.flexDirection = "column";
+    }else{
+        document.querySelector(".buy-content").style.flexDirection = "row";
+    }
 
     let click = document.querySelectorAll(".borderClick");
     const cant = document.querySelector(".price");
