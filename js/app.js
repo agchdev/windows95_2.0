@@ -90,6 +90,7 @@ function addBarraDeTareas(app){
     appDivBarTarea.append(img,p);
 
     if(!comprobarBarTar(appDivBarTarea)){
+        crearVentana(app); // Me aseguro de que no se abra dos veces la misma ventana
         creado = comprobarBarTar(appDivBarTarea);
         const footer = document.querySelector("footer");
         footer.insertBefore(appDivBarTarea, footer.children[1]);
@@ -355,6 +356,13 @@ function addContentScreen(text, screen){
     if (text.textContent == "InternetShop") {
         contentIShopPro(screen);
     }
+    if (text.textContent == "Documentos") {
+        contentDocumentos(screen);
+    }
+    
+    if (text.textContent == "Papelera") {
+        contentPapelera(screen);
+    }
 }
 
 // Esta funcion crea el contenido de la ventana de shop
@@ -428,6 +436,16 @@ function contentIShopPro(screen){
         const opc = e.target.value;
         cambiarContentShop(screen, opc);
     })
+
+    // SELECCION DE CAMISETA QUE DESEA COMPRAR
+    const screenArticle = document.querySelectorAll(".screen-article");
+    screenArticle.forEach(articulo => {
+        articulo.addEventListener("click", (e) => {
+            const opc = articulo.querySelector("h3").textContent;
+            console.log(opc)
+            cambiarContentShop(screen, opc);
+        })
+    });
 }
 
 function crearConocenos(screen){
@@ -558,10 +576,51 @@ function cambiarContentShop(screen, opc){
     if(opc == "Contacto") crearContacto(screen);
     if(opc == "Conócenos") crearConocenos(screen);
     if(opc == "Productos") contentIShopPro(screen);
+    if(opc == "EagWindows Green" || opc == "EagWindows Blue" || opc == "EagWindows Red") contentBuy(screen, opc);
 }
 
 
+function contentBuy(screen, opc){
+    const divProd = document.createElement("div");
+    let cantidad = 0;
+    divProd.setAttribute("class", "screen-content borderStatic");
+    divProd.innerHTML = `
+    <div class="screen-content-banner">
+    </div>
+    <div class="buy-content">   
+        <spline-viewer hint loading-anim-type="spinner-small-dark" url="https://prod.spline.design/JaToOudrmTi5honU/scene.splinecode"></spline-viewer>
+        <div class="buy-content-extras">
+            <h2>${opc}</h2>
+            <h3>Camiseta de Eag 95 disponible para todos los públicos para que puedan rememorar  lo que era un buen sistema operatico</h3>
+            <p>15,99€</p>
+            <div>
+                <button class="borderClick">-</button>
+                <p class="price">${cantidad}</p>
+                <button class="borderClick">+</button>
+            </div>
+        </div>
+    </div>
+    
+    `;
+    addFooter(divProd);
+    screen.append(divProd);
 
+    let click = document.querySelectorAll(".borderClick");
+    const cant = document.querySelector(".price");
+    click.forEach(el => {
+        el.addEventListener("click", () => {
+            let comp = el.textContent;
+            if(comp == "-"){
+                if(cantidad > 0) cantidad--;
+                cant.textContent = `${cantidad}`;
+            }else{
+                cantidad++;
+                cant.textContent = `${cantidad}`;
+            }
+
+        })
+    });
+}
 
 // Esta funcion crea el footer de la ventana
 function addFooter(screen){
@@ -606,7 +665,7 @@ document.addEventListener("DOMContentLoaded", () => {
         app.addEventListener("click", () => {
             let crear = addBarraDeTareas(app);
             console.log(crear);
-            if(!crear) crearVentana(app);
+            // if(!crear) crearVentana(app);
         })
     })
     
