@@ -293,11 +293,27 @@ function crearVentana(app){
             }else if(valorAncho <= "700"){
                 // scaleScreenDER.parentElement.querySelector(".screen-content").style.height = "700px";
                 scaleScreenDER.parentElement.style.width = "700px";
-                console.log("hola!!!")
             }
-            
-            // document.body.querySelector("main").prepend(divAux);
-            
+
+            // document.body.querySelector("main").prepend(divAux); 
+            /*
+                  ----------
+                /            \      NO PREGUNTEN NADA DEL CODIGO
+               /              \                                     __
+              /                \                                   |  |--
+              \                /-----------------------------------|  |  \____
+               \              /                                    |  |       \
+                \            /                                     |  |        \
+                 ------------                                      |  |       --
+                  /          \                                     |  |        /
+                 /            \                                    |  |       /
+                /              \                                   |  |   ___/
+               /                \----------------------------------|  |  /
+               \                /                                  |__|--
+                \              /
+                 \            /
+                  ------------
+            */
         }
         if (escalarIzq) {
             console.log("moviendo");
