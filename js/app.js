@@ -185,47 +185,135 @@ function crearVentana(app){
     //SCALES SCREEN
     //Variables
     const scaleScreen = document.querySelectorAll(".scaleScreen");
+    const scaleScreenAR = document.querySelector(".scaleScreenAR");
+    const scaleScreenAB = document.querySelector(".scaleScreenAB");
+    const scaleScreenDER = document.querySelector(".scaleScreenDER");
+    const scaleScreenIZQ = document.querySelector(".scaleScreenIZQ");
 
-    scaleScreen.forEach(el => {
-        let escalar = false;
-        let altura = 0;
-        let ancho = 0;
-        let height = 0;
-        el.addEventListener("mousedown", () => {
-            escalar = true;
-            // Saco la altura del screen-content
-            height= window.getComputedStyle(el.parentElement).height;
+    let escalarAr = false;
+    let escalarAb = false;
+    let escalarDer = false;
+    let escalarIzq = false;
+
+    let altura = 0;
+    let ancho = 0;
+    let height = 0;
+
+    scaleScreenAR.addEventListener("mousedown", () => {
+        escalarAr = true;
+        // Saco la altura del screen-content
+        height= window.getComputedStyle(scaleScreenAR.parentElement).height;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        height = height.replace("px", "");
+        // Saco la altura de la ventana
+        altura = window.getComputedStyle(scaleScreenAR.parentElement).height;
+        // Saco la anchura de la ventana
+        ancho = window.getComputedStyle(scaleScreenAR.parentElement).width;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        ancho = ancho.replace("px", "");
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        altura = altura.replace("px", "");
+        console.log(ancho)
+    })
+    scaleScreenAB.addEventListener("mousedown", () => {
+        escalarAb = true;
+        // Saco la altura del screen-content
+        height= window.getComputedStyle(scaleScreenAB.parentElement).height;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        height = height.replace("px", "");
+        // Saco la altura de la ventana
+        altura = window.getComputedStyle(scaleScreenAB.parentElement).height;
+        // Saco la anchura de la ventana
+        ancho = window.getComputedStyle(scaleScreenAB.parentElement).width;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        ancho = ancho.replace("px", "");
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        altura = altura.replace("px", "");
+        console.log(ancho)
+    })
+    scaleScreenDER.addEventListener("mousedown", () => {
+        escalarDer = true;
+        // Saco la altura del screen-content
+        height= window.getComputedStyle(scaleScreenDER.parentElement).height;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        height = height.replace("px", "");
+        // Saco la altura de la ventana
+        altura = window.getComputedStyle(scaleScreenDER.parentElement).height;
+        // Saco la anchura de la ventana
+        ancho = window.getComputedStyle(scaleScreenDER.parentElement).width;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        ancho = ancho.replace("px", "");
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        altura = altura.replace("px", "");
+        console.log(ancho)
+    })
+    scaleScreenIZQ.addEventListener("mousedown", () => {
+        escalarIzq = true;
+        // Saco la altura del screen-content
+        height= window.getComputedStyle(scaleScreenIZQ.parentElement).height;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        height = height.replace("px", "");
+        // Saco la altura de la ventana
+        altura = window.getComputedStyle(scaleScreenIZQ.parentElement).height;
+        // Saco la anchura de la ventana
+        ancho = window.getComputedStyle(scaleScreenIZQ.parentElement).width;
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        ancho = ancho.replace("px", "");
+        // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+        altura = altura.replace("px", "");
+        console.log(ancho)
+    })
+    window.addEventListener("mousemove", (e) => {
+        if (escalarAr){
+            console.log("moviendo");
+            // document.body.querySelector("main").prepend(divAux);
+            altura--; // Sumo 1 al alto
+            height--; // Sumo 1 al alto del contenido de la ventana
+            scaleScreenAR.parentElement.querySelector(".screen-content").style.height = height+"px";
+            scaleScreenAR.parentElement.style.height = altura+"px";
+        }
+        if (escalarAb) {
+            console.log("moviendo");
+            // document.body.querySelector("main").prepend(divAux);
+            altura++; // Sumo 1 al alto
+            height++; // Sumo 1 al alto del contenido de la ventana
+            scaleScreenAB.parentElement.querySelector(".screen-content").style.height = height+"px";
+            scaleScreenAB.parentElement.style.height = altura+"px";
+        }
+        if (escalarDer) {
+            console.log("moviendo");
+            let valorAncho = window.getComputedStyle(scaleScreenIZQ.parentElement).width;
             // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
-            height = height.replace("px", "");
-            // Saco la altura de la ventana
-            altura = window.getComputedStyle(el.parentElement).height;
-            // Saco la anchura de la ventana
-            ancho = window.getComputedStyle(el.parentElement).width;
-            // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
-            ancho = ancho.replace("px", "");
-            // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
-            altura = altura.replace("px", "");
-            console.log(ancho)
-        })
-        window.addEventListener("mousemove", (e) => {
-            if (escalar){
-                console.log("moviendo");
-                // document.body.querySelector("main").prepend(divAux);
+            valorAncho = valorAncho.replace("px", "");
+            console.log(valorAncho);
+            if (valorAncho >= "700") {
                 ancho++; // Sumo 1 al ancho
-                altura++; // Sumo 1 al alto
-                height++; // Sumo 1 al alto del contenido de la ventana
-                el.parentElement.querySelector(".screen-content").style.height = height+"px";
-                el.parentElement.style.width = ancho+"px";
-                el.parentElement.style.height = altura+"px";
-                console.log(ancho)
-                console.log(altura)
+                scaleScreenDER.parentElement.querySelector(".screen-content").style.height = height+"px";
+                scaleScreenDER.parentElement.style.width = ancho+"px";
             }
+            // document.body.querySelector("main").prepend(divAux);
             
-        })
-        window.addEventListener("mouseup", () => {
-            escalar=false;
-        })
-    });
+        }
+        if (escalarIzq) {
+            console.log("moviendo");
+            let valorAncho = window.getComputedStyle(scaleScreenIZQ.parentElement).width;
+            // Me devuelve los datos con px. pues se los sacamos para poder jugar con el numero
+            valorAncho = valorAncho.replace("px", "");
+            // document.body.querySelector("main").prepend(divAux);
+            if (valorAncho >= "700") {
+                ancho--; // resta 1 al ancho
+                scaleScreenIZQ.parentElement.querySelector(".screen-content").style.height = height+"px";
+                scaleScreenIZQ.parentElement.style.width = ancho+"px";
+            }
+        }
+        
+    })
+    window.addEventListener("mouseup", () => {
+        escalarAb = false;
+        escalarAr = false;
+        escalarDer = false;
+        escalarIzq = false;
+    })
     //FIN SCALES SCREEN
 
     borderSelectable.forEach(bselect => {
@@ -268,7 +356,6 @@ function crearVentana(app){
             console.log(textComp);
             primerTextComp = false;
         }
-
         bselect.addEventListener("mousedown", (e) =>{
             if (textCompGod == bselect.querySelector("div > div > p").textContent) {
                 mover = true;
@@ -281,6 +368,7 @@ function crearVentana(app){
         window.addEventListener("mousemove", (e) =>{
             if (mover){
                 const { offsetX, offsetY } = e;
+
                 screen.style.top = -posY+offsetY+"px";
                 screen.style.left = -posX+offsetX+"px"; // Obra maestra del -posX para que la ventana siempre se empiece a mover desde donde seleccionas
             }
@@ -604,12 +692,16 @@ function contentBuy(screen, opc){
     `;
     addFooter(divProd); // añado footer
     screen.append(divProd); // añado la el contenido de la ventana
-
-    if(screen.offsetWidth < 750){
-        document.querySelector(".buy-content").style.flexDirection = "column";
-    }else{
-        document.querySelector(".buy-content").style.flexDirection = "row";
-    }
+    
+    screen.addEventListener('resize', function() {
+        const width = screen.offsetWidth;  // Obtener el ancho de la ventana
+      
+        if (width < 768) {
+            document.querySelector(".buy-content").style.flexDirection = "column";
+        } else {
+            document.querySelector(".buy-content").style.flexDirection = "row";
+        }
+      });
 
     let click = document.querySelectorAll(".borderClick");
     const cant = document.querySelector(".price");
