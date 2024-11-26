@@ -288,9 +288,14 @@ function crearVentana(app){
             console.log(valorAncho);
             if (valorAncho >= "700") {
                 ancho++; // Sumo 1 al ancho
-                scaleScreenDER.parentElement.querySelector(".screen-content").style.height = height+"px";
+                // scaleScreenDER.parentElement.querySelector(".screen-content").style.height = height+"px";
                 scaleScreenDER.parentElement.style.width = ancho+"px";
+            }else if(valorAncho <= "700"){
+                // scaleScreenDER.parentElement.querySelector(".screen-content").style.height = "700px";
+                scaleScreenDER.parentElement.style.width = "700px";
+                console.log("hola!!!")
             }
+            
             // document.body.querySelector("main").prepend(divAux);
             
         }
@@ -302,8 +307,12 @@ function crearVentana(app){
             // document.body.querySelector("main").prepend(divAux);
             if (valorAncho >= "700") {
                 ancho--; // resta 1 al ancho
-                scaleScreenIZQ.parentElement.querySelector(".screen-content").style.height = height+"px";
+                // scaleScreenIZQ.parentElement.querySelector(".screen-content").style.height = height+"px";
                 scaleScreenIZQ.parentElement.style.width = ancho+"px";
+            }else if(valorAncho <= "700"){
+                // scaleScreenIZQ.parentElement.querySelector(".screen-content").style.height = "700px";
+                scaleScreenIZQ.parentElement.style.width = "700px";
+                console.log("hola!!!")
             }
         }
         
