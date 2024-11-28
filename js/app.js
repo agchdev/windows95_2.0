@@ -47,24 +47,6 @@ const valoraciones = [
 let screenUp = []; // Creo un array donde voy a almacenar las ventanas para ir colocandolas unas encimas de otras
 let fullScreen = false;
 
-/*
-                  ----------
-                /            \      NO PREGUNTEN NADA DEL CODIGO
-               /              \                                     __
-              /                \                                   |  |__
-              \                /-----------------------------------|  |  \____
-               \              /                                    |  |       \
-                \            /                                     |  |        \
-                 ------------                                      |  |       --
-                  /          \                                     |  |        /
-                 /            \                                    |  |       /
-                /              \                                   |  |   ___/
-               /                \----------------------------------|  |__/
-               \                /                                  |__|
-                \              /
-                 \            /
-                  ------------
-*/
 
 // FUNCIONES
 function crearAppIcon(){ // Esta función creal la app del escritorio
@@ -315,24 +297,7 @@ function crearVentana(app){
             }
 
             // document.body.querySelector("main").prepend(divAux); 
-            /*
-                  ----------
-                /            \      NO PREGUNTEN NADA DEL CODIGO
-               /              \                                     __
-              /                \                                   |  |__
-              \                /-----------------------------------|  |  \____
-               \              /                                    |  |       \
-                \            /                                     |  |        \
-                 ------------                                      |  |       --
-                  /          \                                     |  |        /
-                 /            \                                    |  |       /
-                /              \                                   |  |   ___/
-               /                \----------------------------------|  |__/
-               \                /                                  |__|
-                \              /
-                 \            /
-                  ------------
-            */
+            
         }
         if (escalarIzq) {
             console.log("moviendo");
@@ -810,7 +775,14 @@ document.addEventListener("DOMContentLoaded", () => {
             // if(!crear) crearVentana(app);
         })
     })
-    
+    const windowBtn = document.querySelector(".windowMenu");
+
+    windowBtn.addEventListener("click", () => {
+        const screen = document.querySelectorAll(".screen");
+        screen.forEach(el => {
+            el.remove();
+        });
+    })
 
     
 })
