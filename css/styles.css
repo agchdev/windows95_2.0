@@ -670,6 +670,26 @@ details:not([open])
 #logo{
     display: none !important;
 }
+#inicio{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inicioSesion{
+    font-family: leviwindows;
+    width: 40%;
+}
+.inicioSesion .input, textarea{
+    width: 100%;
+}
+@media (max-width: 1250px) {
+    .inicioSesion{
+        width: 80%;
+    }
+}
 @keyframes shake {
     10%, 90% {
         transform: translate3d(-1px, 0, 0);
