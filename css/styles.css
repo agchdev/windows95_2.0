@@ -634,8 +634,6 @@ details:not([open])
     align-items: center;
     padding: 4rem 0;
 }
-.buy-content > spline-viewer{
-}
 .buy-content > div{
     width: 50%;
 }

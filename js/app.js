@@ -148,11 +148,11 @@ function crearVentana(app){
                         <p>Forward</p>
                     </div>
                     <div>
-                        <img src="img/ico/msie2.ico" alt="">
+                        <img class="pointer conoce" src="img/ico/msie2.ico" alt="">
                         <p>Conócenos</p>
                     </div>
                     <div>
-                        <img src="img/ico/modem.ico" alt="">
+                        <img class="pointer contacto" src="img/ico/modem.ico" alt="">
                         <p>Contacto</p>
                     </div>
                 </div>
@@ -178,6 +178,15 @@ function crearVentana(app){
 
     const borderSelectable = document.querySelectorAll(".borderSelectable");
     let primerTextComp = true;
+
+    const conoce = document.querySelector(".conoce");
+    conoce.addEventListener("click", () => {
+        cambiarContentShop(screen, "Conócenos")
+    })
+    const contacto = document.querySelector(".contacto");
+    contacto.addEventListener("click", () => {
+        cambiarContentShop(screen, "Contacto")
+    })
 
     // Creamos un div auxiliar que me permitirá mover mis objetos
     const divAux = document.createElement("div");
@@ -388,6 +397,7 @@ function crearVentana(app){
         })
     });
 }
+// AJUSTA LA VENTANA
 function fullAjuste(elPadre){
     let content = elPadre.querySelector(".screen-content");
     if(elPadre.style.width == "100%"){
@@ -460,6 +470,14 @@ function addContentScreen(text, screen){
     if (text.textContent == "Papelera") {
         contentPapelera(screen);
     }
+}
+
+function contentDocumentos(screen){
+    
+}
+
+function contentPapelera(screen){
+
 }
 
 // Esta funcion crea el contenido de la ventana de shop
