@@ -12,27 +12,41 @@
     <main>
         <section id="inicio">
             <form class="formContacto inicioSesion borderStatic">
-                <div class="borderStatic">
+                <div class="borderStatic welcome">
                     <p>WELCOME</p>
-                    <p class="btn border pointer red btnError">X</p>
                 </div>
                 <div class="formContent">
                     <h3 class="h3form">INICIO DE SESION</h3>
-                    <input class="input" type="text" name="nombre" placeholder="nombre">
-                    <input class="input" type="email" name="email" placeholder="email">
-                    <textarea name="duda" placeholder="alguna duda o nada"></textarea>
-                    <div>
-                        <input type="checkbox" name="terms">
-                        <p>i read & Agree to Terms and Conditions</p>
-                    </div>
+                    <input class="input text" type="text" placeholder="Nombre...">
+                    <input class="input contraseña" type="password" placeholder="Contraseña...">
                     <button class="btnEnviar">Enviar</button>
                 </div>
             </form>
         </section>
+        <footer class="screen-content-footer-copyright borderStatic">
+            <p>copyright 2024 designed by Alejandro Aguayo</p>
+        </footer>
     </main>
     <!-- FIN MAIN -->
     <!-- FIN FOOTER -->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const inputText = document.querySelector(".text").value;
+                const inputPass = document.querySelector(".contraseña").value;
+                console.log(inputText)
+                if(inputPass.trim() == "contraseña" && inputText.trim() == "usuario") location.href ="./index.html";
+                else { 
+                    form.classList.add("shake"); 
+                    setTimeout(() => {
+                        form.classList.remove("shake");
+                    }, 820);
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

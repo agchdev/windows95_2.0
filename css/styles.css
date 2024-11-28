@@ -677,17 +677,38 @@ details:not([open])
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .inicioSesion{
     font-family: leviwindows;
-    width: 40%;
+    width: 20%;
 }
 .inicioSesion .input, textarea{
     width: 100%;
 }
-@media (max-width: 1250px) {
+.welcome{
+    padding: .5rem;
+    display: flex;
+    justify-content: center !important;
+}
+@media (max-width: 1400px) {
     .inicioSesion{
-        width: 80%;
+        width: 30%;
+    }
+}
+@media (max-width: 780px) {
+    .inicioSesion{
+        width: 40%;
+    }
+}
+@media (max-width: 600px) {
+    .inicioSesion{
+        width: 60%;
+    }
+}
+@media (max-width: 400px) {
+    .inicioSesion{
+        width: 90%;
     }
 }
 @keyframes shake {
